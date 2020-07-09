@@ -9,3 +9,4 @@ class Destino(models.Model):
     desc  = models.TextField()
     price = models.FloatField()
     offer = models.BooleanField(default=False)
+    state = models.BooleanField(default=True)

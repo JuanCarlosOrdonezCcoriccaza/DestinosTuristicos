@@ -15,7 +15,7 @@ def index(request):
     dest2 =  Destino()
     dest2.name='Mancora-Peru'
     dest2.desc='Turisc travel , then your want travel to a  Mancora in Perú'
-    dest2.img='destination_8.jpg'
+    dest2.img='destination_10.jpg'
     dest2.price= 499.99
     dest2.offer= True
 
