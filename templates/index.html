@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'styles/login.css' %}">
+
 </head>
 <body>
 
@@ -33,11 +33,9 @@
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
 									<li class="active"><a href="">Home</a></li>
-									<li><a href="#about">About us</a></li>
-									<li><a href="#">Services</a></li>
 									<li><a href="#news">News</a></li>
 									<li><a href="#contact">Contact</a></li>
-									<li><a href="login.html">Login</a></li>
+									<li><a href="accounts/register">Registrar</a></li>
 								</ul>
 							</nav>
 							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
@@ -74,10 +72,9 @@
 		<div class="menu_content">
 			<ul>
 				<li><a href="">Home</a></li>
-				<li><a href="#">About us</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="#">News</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="#news">News</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<li><a href="accounts/register">Registrar</a></li>
 				<li><button type="button" class="login" onclick="document.getElementById('login').display='true';">Login</button></li>
 			</ul>
 		</div>
@@ -339,7 +336,7 @@
 
 	<!-- News -->
 
-	<div class="news" id="news">
+	<div class="news" id="#news">
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-8">
@@ -434,7 +431,7 @@
 
 	<!-- Footer -->
 
-	<footer class="footer">
+	<footer class="footer" id='#contact'>
 		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/footer_1.jpg' %}" data-speed="0.8"></div>
 		<div class="container">
 			<div class="row">
@@ -467,8 +464,8 @@
 								<div class="footer_contact_title">give us a call</div>
 								<div class="footer_contact_list">
 									<ul>
-										<li>Office Landline: +44 5567 32 664 567</li>
-										<li>Mobile: +44 5567 89 3322 332</li>
+										<li>Office Landline: +51 054 65 64 11</li>
+										<li>Mobile: +51 936 306 361</li>
 									</ul>
 								</div>
 							</div>

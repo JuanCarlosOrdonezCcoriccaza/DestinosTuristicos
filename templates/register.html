@@ -1,0 +1,63 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/register.css'%}">
+    <title>Register</title>
+    <script src="static/js/register.js"></script>
+</head>
+<body>
+    <div class='formulario'>
+        <form action="register" method="POST" id="form">
+            <div class="form">
+                <h1>LOGIN</h1>
+                <div class="grupo">
+                    {%csrf_token%}
+                    <input type="text" class="redondeado" style="width:250px; height:15px" name="first_name" id="first_name" requiered><span class="barra"></span>
+                    <label for="">.</label>
+                    <br><label for="">FirstName</label>
+                </div><br>
+                <div class="grupo">
+                    {%csrf_token%}
+                    <input type="text" class="redondeado" name="last_name" id="last_name" requiered><span class="barra"></span>
+                    <label for="">.</label>
+                    <br><label for="">LastName</label>
+                </div><br>
+                <div class="grupo">
+                    {%csrf_token%}
+                    <input type="text" class="redondeado" name="username" id="username" requiered><span class="barra"></span>
+                    <label for="">.</label>
+                    <br><label for="">UserName</label>
+                </div><br>
+                <div class="grupo">
+                    {%csrf_token%}
+                    <input type="email" class="redondeado" name="email" id="email" requiered><span class="barra"></span>
+                    <label for="">.</label>
+                    <br><label for="">Email</label>
+                </div><br>
+                <div class="grupo">
+                    {%csrf_token%}
+                    <input type="password" class="redondeado" name="password" id="password" required><span class="barra"></span>
+                    <label for="">.</label>
+                    <br><label for="">Password</label>
+                </div><br>
+                <div class="grupo">
+                    {%csrf_token%}
+                    <input type="password" class="redondeado"  name="passwordC" id="passwordC" requiered><span class="barra"></span>
+                    <label for="">.</label>
+                    <br><label for="">Confirm Password</label>
+                </div><br>
+            </div>
+            <br><br>
+            <button type="submit" class="boton">Submit</button>
+        </form>
+    </div>
+    <div>
+        {% for message in messages %}
+        <h3> {{message}}</h3>
+        {% endfor %}
+    </div>
+</body>
+</html>
