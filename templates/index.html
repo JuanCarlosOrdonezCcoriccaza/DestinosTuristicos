@@ -35,11 +35,17 @@
 									<li class="active"><a href="">Home</a></li>
 									<li><a href="#news">News</a></li>
 									<li><a href="#contact">Contact</a></li>
-									<li><a href="accounts/register">Registrar</a></li>
+									{% if user.is_authenticated %}
+										<li><a href="accounts/logout">Logout</a></li>
+									{% else %}
+										<li><a href="accounts/register">Registrar</a></li>
+										<li><a href="accounts/login">Login</a></li>
+									{% endif %}
 								</ul>
 							</nav>
-							<div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
-
+							{% if user.is_authenticated %}
+							<div class="header_phone ml-auto">User: {{ user.username }}</div>
+							{% endif %}
 							<!-- Hamburger -->
 
 							<div class="hamburger ml-auto">
@@ -71,10 +77,18 @@
 		</div>
 		<div class="menu_content">
 			<ul>
+				{% if user.is_authenticated %}
+				<li><a href="">User: {{ user.username }}</a></li>
+			{% endif %}
 				<li><a href="">Home</a></li>
 				<li><a href="#news">News</a></li>
 				<li><a href="#contact">Contact</a></li>
-				<li><a href="accounts/register">Registrar</a></li>
+				{% if user.is_authenticated %}
+					<li><a href="accounts/logout">Logout</a></li>
+				{% else %}
+					<li><a href="accounts/register">Registrar</a></li>
+					<li><a href="accounts/login">Login</a></li>
+				{% endif %}
 			</ul>
 		</div>
 		<div class="menu_social">

@@ -1,23 +1,44 @@
-<div id="wrap">
-    <div id="regbar">
-      <div id="navthing">
-        <h2><a href="#" id="loginform">Login</a> | <a href="#">Register</a></h2>
-      <div class="login">
-        <div class="arrow-up"></div>
-        <div class="formholder">
-          <div class="randompad">
-             <fieldset>
-                <label name="username">Username</label>
-                <input type="username" value="Username" />
-                <!--<label name="email">Email</label>
-                <input type="email" value="example@example.com" />-->
-                <label name="password">Password</label>
-                <input type="password" />
-                <input type="submit" value="Login" />
-             </fieldset>
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Travello template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/login.css' %}">
+  </head>
+  <body id="myId"> 
+    <section class="register-account"> 
+          <div class="signform">      
+            <div class="left"><a href="#" style="float:right;margin-right:35px;font-size: 0.9em;" class="bts-a">Don't have an account? Sign up!</a>
+              <div class="bts">
+                <a href="#" class="fblogin social"><i class="fa fa-facebook"></i><span>Sign in with Facebook</span></a>
+                <a href="#" class="twlogin social"><i class="fa fa-twitter"></i><span>Sign in with Twitter</span></a>
+                <a href="#" class="gplogin social"><i class="fa fa-google-plus"></i><span>Sign in with Google</span></a>             
+              </div>
+            </div>
+            <div class="right">
+                <div class="headit">
+                  <h4>Login To Your Account</h4>
+                </div>
+                <div class="form">
+                  <form action="login" method="post" class="login-form" id="login-form">
+                      {% csrf_token %}
+                      <input type="text" name="username" placeholder="User name"/>
+                      <input type="password" name="password" placeholder="Password"/>        
+                      <input class="subbt" type="submit" value="Sign In" style="border:none;"/>   
+                  </form>
+                  <input type="checkbox" id="remember" name="remember"><span style="color:#b6b6b6;font-size: 0.9em;"> Remember Me</span><a href="#">Forgot your password?</a>        
+                  <div style="font-family: cursive;color:tomato">
+                    {% for message in messages %}
+                    <h3> {{message}}</h3>
+                    {% endfor %}
+                  </div>
+                </div>
+            </div>       
           </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </div>
+    </section>
+  </body>  
+</html>
