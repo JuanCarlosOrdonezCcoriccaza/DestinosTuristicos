@@ -24,7 +24,7 @@
                 <h2>Register a new Account</h2>
                 </div>
                 <div class="form">
-                <form class="login-form" id="login-form" method="post">
+                <form class="login-form" id="login-form" method="post" action="register">
                         {% csrf_token %}
                     <input type="text" name="first_name" id="first_name" placeholder="First Name" requiered>
                     <input type="text" name="last_name" id="last_name" placeholder="Last Name" requiered>

@@ -1,0 +1,44 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/create.css'%}">
+    <title>Register</title>
+    <script src="static/js/register.js"></script>
+</head>
+<body id="myId" class="background_image" style="background-image:url(../static/images/why.jpg)"> 
+     <section class="register-account"> 
+        <div class="signform" >    
+            <div class="right">
+                <div class="headit">
+                    <h2>Register a new Destination</h2>
+                </div>
+                <div class="form">
+                    <form class="login-form" id="login-form" method="post" action="createD" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <input type="text" name="name" id="name" placeholder="City Name" requiered>
+                        <input type="file" name="img" id="img" placeholder="Imagen" requiered>
+                        <textarea name="desc" id="desc" placeholder="Descripcion" cols="30" row="4" requiered></textarea>
+                        <input type="number" name="price" id="price" placeholder="Precio" requiered>
+                        <div class="checkbox">
+                            <input type="checkbox" name="offer" id="offer" class="checkbox" requiered>
+                            <label for="offer">Oferta</label><br>
+                            <input type="checkbox" name="state" id="state" class="checkbox" requiered>
+                            <label for="state">Estado_Destino(activo/inactivo)</label> 
+                        </div>
+                        <div style="font-family: cursive;color:tomato">
+                            {% for message in messages %}
+                            <h3> {{message}}</h3>
+                            {% endfor %}
+                        </div>
+                        <input class="subbt" type="submit" value="Save" style="border:none;"/>
+                        <a class="subbt" href="/" style="border:none;width:3em;color:white;" value="Cancel">Cancel</a>
+                    </form>
+                </div>
+            </div>       
+        </div>
+    </section>
+</body>  
+</html>

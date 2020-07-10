@@ -32,10 +32,14 @@
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
 									<li class="active"><a href="">Home</a></li>
-									<li><a href="#news">News</a></li>
 									<li><a href="#contact">Contact</a></li>
 									{% if user.is_authenticated %}
-										<li><a href="accounts/logout">Logout</a></li>
+									<li><a href="#">Listar</a></li>
+									{% if user.is_superuser %}
+										<li><a href="accounts/createD">Crear Destino</a></li>
+										<li><a href="#">Eliminar Destino</a></li>
+									{% endif %}
+									<li><a href="accounts/logout">Logout</a></li>
 									{% else %}
 										<li><a href="accounts/register">Registrar</a></li>
 										<li><a href="accounts/login">Login</a></li>
@@ -78,11 +82,14 @@
 			<ul>
 				{% if user.is_authenticated %}
 				<li><a href="">User: {{ user.username }}</a></li>
-			{% endif %}
-				<li><a href="">Home</a></li>
-				<li><a href="#news">News</a></li>
+				{% endif %}
 				<li><a href="#contact">Contact</a></li>
 				{% if user.is_authenticated %}
+					<li><a href="#">Listar</a></li>
+					{% if user.is_superuser %}
+						<li><a href="accounts/createD">Crear Destino</a></li>
+						<li><a href="#">Eliminar Destino</a></li>
+					{% endif %}
 					<li><a href="accounts/logout">Logout</a></li>
 				{% else %}
 					<li><a href="accounts/register">Registrar</a></li>
