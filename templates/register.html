@@ -4,60 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/register.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/login.css'%}">
     <title>Register</title>
     <script src="static/js/register.js"></script>
 </head>
-<body>
-    <div class='formulario'>
-        <form action="register" method="POST" id="form">
-            <div class="form">
-                <h1>LOGIN</h1>
-                <div class="grupo">
-                    {%csrf_token%}
-                    <input type="text" class="redondeado" style="width:250px; height:15px" name="first_name" id="first_name" requiered><span class="barra"></span>
-                    <label for="">.</label>
-                    <br><label for="">FirstName</label>
-                </div><br>
-                <div class="grupo">
-                    {%csrf_token%}
-                    <input type="text" class="redondeado" name="last_name" id="last_name" requiered><span class="barra"></span>
-                    <label for="">.</label>
-                    <br><label for="">LastName</label>
-                </div><br>
-                <div class="grupo">
-                    {%csrf_token%}
-                    <input type="text" class="redondeado" name="username" id="username" requiered><span class="barra"></span>
-                    <label for="">.</label>
-                    <br><label for="">UserName</label>
-                </div><br>
-                <div class="grupo">
-                    {%csrf_token%}
-                    <input type="email" class="redondeado" name="email" id="email" requiered><span class="barra"></span>
-                    <label for="">.</label>
-                    <br><label for="">Email</label>
-                </div><br>
-                <div class="grupo">
-                    {%csrf_token%}
-                    <input type="password" class="redondeado" name="password" id="password" required><span class="barra"></span>
-                    <label for="">.</label>
-                    <br><label for="">Password</label>
-                </div><br>
-                <div class="grupo">
-                    {%csrf_token%}
-                    <input type="password" class="redondeado"  name="passwordC" id="passwordC" requiered><span class="barra"></span>
-                    <label for="">.</label>
-                    <br><label for="">Confirm Password</label>
-                </div><br>
-            </div>
-            <br><br>
-            <button type="submit" class="boton">Submit</button>
-        </form>
-        <div style="font-family: cursive;color:tomato">
-            {% for message in messages %}
-            <h3> {{message}}</h3>
-            {% endfor %}
+<body id="myId" class="background_image" style="background-image:url(../static/images/why.jpg)"> 
+     <section class="register-account"> 
+        <div class="signform" >
+            <div class="left">
+                <a href="login" class="bts-a access">I do have an account !</a>
+                <div class="bts">
+                  <a href="#" class="fblogin social"><i class="fa fa-facebook"></i><span>Sign in with Facebook</span></a>
+                    <a href="#" class="twlogin social"><i class="fa fa-twitter"></i><span>Sign in with Twitter</span></a>
+                  <a href="#" class="gplogin social"><i class="fa fa-google-plus"></i><span>Sign in with Google</span></a>             
+                </div>
+              </div>      
+            <div class="right">
+                <div class="headit">
+                <h2>Register a new Account</h2>
+                </div>
+                <div class="form">
+                <form class="login-form" id="login-form" method="post">
+                        {% csrf_token %}
+                    <input type="text" name="first_name" id="first_name" placeholder="First Name" requiered>
+                    <input type="text" name="last_name" id="last_name" placeholder="Last Name" requiered>
+                    <input type="text" name="username" id="username" placeholder="User Name" requiered>
+                    <input type="email" name="email" id="email" placeholder="Email" requiered>
+                    <input type="password" name="password" id="password" placeholder="Password" requiered>
+                    <input type="password" name="passwordC" id="passwordC" placeholder="Confirm Password" requiered>        
+                    <div style="font-family: cursive;color:tomato">
+                        {% for message in messages %}
+                        <h3> {{message}}</h3>
+                        {% endfor %}
+                    </div>
+                    <input class="subbt" type="submit" value="Sign In" style="border:none;"/>
+                    <a class="subbt" href="/" style="border:none;width:3em;color:white;" value="Cancel">Cancel</a>
+                </form>
+                <input type="checkbox" id="remember" name="remember"><span style="color:#b6b6b6;font-size: 0.9em;"> Remember Me</span>
+                </div>
+            </div>       
         </div>
-    </div>
-</body>
+    </section>
+</body>  
 </html>
