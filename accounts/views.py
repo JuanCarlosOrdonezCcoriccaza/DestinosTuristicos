@@ -1,6 +1,7 @@
 from django.shortcuts import render , redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from travello.models import Destino
 # Create your views here.
 
 def login(request):
@@ -16,7 +17,6 @@ def login(request):
             return redirect('login')              
     else:
         return render(request,'login.html')
-
 
 
 def register(request):
@@ -56,8 +56,8 @@ def logout (request):
     auth.logout(request)
     return redirect('/')
 
+
 def createD (request):
-    print('Add image')
     messages.info(request,'Add Destination')
     if request.method=='POST':
         name=request.POST['name']
@@ -66,29 +66,25 @@ def createD (request):
         price=request.POST['price']
         state=request.POST['state']
         offer=request.POST.get('offer',False)
-        print(name+","+desc+","+price+","+state+","+offer)
-        if User.objects.filter(name=name).exists():
-            messages.info(request,'Ya exiten datos de esta Imagen')
-            return redirect(createD)
-        else:        
-            if offer== 'on':
-                offer=True
-            else:
-                offer=False
-            if state== 'on':
-                state=True
-            else:
-                state=False 
-            print(name+","+desc+","+price+","+state+","+offer)       
-            imagenes=Destino.objects.create(name=name,img=img,desc=desc,price=price,offer=offer)    
-            imagenes.save();
-            print("Se añadio Destino")
-            messages.info(request,'Destino añadido')
-            print('Destino añadido')
-            return redirect('createD')
-        dests=Destino.objects.all()
+        print(name+","+desc+","+price+","+state+","+offer)       
+        if offer== 'on':
+            offer=True
+        else:
+            offer=False
+        if state== 'on':
+            state=True
+        else:
+            state=False 
+        imagenes=Destino.objects.create(name=name,img=img,desc=desc,price=price,offer=offer)    
+        imagenes.save()
+        print("Se añadio Destino correctamente")
+        messages.info(request,'Destino añadido Correctamente')
+        #dests=Destino.objects.all()
+        return redirect('createD')  
     else:
         return render(request,'createD.html')
+            
+
 def listar(request):
     data=Destination.objects.all()
     return render(request,'listar.html',{'data':data,})
