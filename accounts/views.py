@@ -39,7 +39,7 @@ def register(request):
                 return redirect('register')
             else:    
                 user=User.objects.create_user(first_name=first_name,last_name=last_name,username=username,email=email,password=password)
-                user.save();
+                user.save()
                 messages.info(request,'User Created')
                 print('User Created')
                 return redirect('login')
@@ -58,33 +58,36 @@ def logout (request):
 
 
 def createD (request):
-    messages.info(request,'Add Destination')
     if request.method=='POST':
         name=request.POST['name']
         img=request.FILES['img']
         desc=request.POST['desc']
         price=request.POST['price']
-        state=request.POST['state']
+        state=request.POST.get('state',True)
         offer=request.POST.get('offer',False)
-        print(name+","+desc+","+price+","+state+","+offer)       
-        if offer== 'on':
-            offer=True
+        if Destino.objects.filter(name=name).exists():
+            messages.info(request,'Name Taken')
+            print('Name taken')
+            return redirect('createD')
         else:
-            offer=False
-        if state== 'on':
-            state=True
-        else:
-            state=False 
-        imagenes=Destino.objects.create(name=name,img=img,desc=desc,price=price,offer=offer)    
-        imagenes.save()
-        print("Se añadio Destino correctamente")
-        messages.info(request,'Destino añadido Correctamente')
-        #dests=Destino.objects.all()
-        return redirect('createD')  
+            if offer== 'on':
+                offer=True
+            else:
+                offer=False
+            if state== 'on':
+                state=True
+            else:
+                state=False 
+            imagenes=Destino.objects.create(name=name,img=img,desc=desc,price=price,offer=offer,state=state)    
+            imagenes.save()
+            print("Se añadio Destino correctamente")
+            messages.info(request,'Destino añadido Correctamente')
+            dests=Destino.objects.all()
+            return redirect('/')   
     else:
         return render(request,'createD.html')
-            
+        
 
 def listar(request):
-    data=Destination.objects.all()
+    data=Destino.objects.all()
     return render(request,'listar.html',{'data':data,})

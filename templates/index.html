@@ -267,21 +267,41 @@
 				<div class="col">
 					<div class="destinations_container item_grid">
 						{% for dest in dests %}
-						<!-- Destination -->
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{{dest.img.url}}" alt="image_of_{{dest.name}}">
-								{% if dest.offer %}
-								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+							{% if user.is_superuser %}
+								<!-- Destination -->
+								<div class="destination item">
+									<div class="destination_image">
+										<img src="{{dest.img.url}}" alt="image_of_{{dest.name}}" style="width: 330px;height: 220px;">
+										{% if dest.offer %}
+										<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+										{% endif %}
+										<div class="spec_offer text-center" style="left: 200px;"><a href="#">State {{dest.state}}</a></div>	
+									</div>
+									<div class="destination_content">
+										<div class="destination_title"><a href="destinations.html">{{dest.name}}</a></div>
+										<div class="destination_subtitle"><p>{{dest.desc}}</p></div>
+										<div class="destination_price">From ${{dest.price}}</div>
+									</div>
+								</div>
+							{% else %}
+								{% if dest.state %}
+								<!-- Destination -->
+								<div class="destination item">
+									<div class="destination_image">
+										<img src="{{dest.img.url}}" alt="image_of_{{dest.name}}" style="width: 330px;height: 220px;">
+										{% if dest.offer %}
+										<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+										{% endif %}
+									</div>
+									<div class="destination_content">
+										<div class="destination_title"><a href="destinations.html">{{dest.name}}</a></div>
+										<div class="destination_subtitle"><p>{{dest.desc}}</p></div>
+										<div class="destination_price">From ${{dest.price}}</div>
+									</div>
+								</div>
 								{% endif %}
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="destinations.html">{{dest.name}}</a></div>
-								<div class="destination_subtitle"><p>{{dest.desc}}</p></div>
-								<div class="destination_price">From ${{dest.price}}</div>
-							</div>
-						</div>
-						{% endfor %}
+							{% endif %}
+						{% endfor %}	
 					</div>
 				</div>
 			</div>
