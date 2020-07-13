@@ -89,5 +89,6 @@ def createD (request):
         
 
 def listar(request):
-    data=Destino.objects.all()
-    return render(request,'listar.html',{'data':data,})
+    dests=Destino.objects.all()
+    return render(request,'listar.html',{'dests':dests})
+    

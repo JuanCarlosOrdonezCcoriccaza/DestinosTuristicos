@@ -8,6 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travello template project">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="{% static 'images/favicon.ico'%}">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
 <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
@@ -31,10 +32,10 @@
 							<div class="logo"><a href="index.html">Travello</a></div>
 							<nav class="main_nav">
 								<ul class="d-flex flex-row align-items-start justify-content-start">
-									<li class="active"><a href="">Home</a></li>
+									<li class="active"><a href="/">Home</a></li>
 									<li><a href="#contact">Contact</a></li>
 									{% if user.is_authenticated %}
-									<li><a href="#">Listar</a></li>
+									<li><a href="accounts/listar">Listar</a></li>
 									{% if user.is_superuser %}
 										<li><a href="accounts/createD">Crear Destino</a></li>
 										<li><a href="#">Eliminar Destino</a></li>
@@ -50,7 +51,6 @@
 							<div class="header_phone ml-auto">User: {{ user.username }}</div>
 							{% endif %}
 							<!-- Hamburger -->
-
 							<div class="hamburger ml-auto">
 								<i class="fa fa-bars" aria-hidden="true"></i>
 							</div>
@@ -81,11 +81,11 @@
 		<div class="menu_content">
 			<ul>
 				{% if user.is_authenticated %}
-				<li><a href="">User: {{ user.username }}</a></li>
+				<li><a href="/">User: {{ user.username }}</a></li>
 				{% endif %}
 				<li><a href="#contact">Contact</a></li>
 				{% if user.is_authenticated %}
-					<li><a href="#">Listar</a></li>
+					<li><a href="accounts/listar">Listar</a></li>
 					{% if user.is_superuser %}
 						<li><a href="accounts/createD">Crear Destino</a></li>
 						<li><a href="#">Eliminar Destino</a></li>
