@@ -92,3 +92,12 @@ def listar(request):
     dests=Destino.objects.all()
     return render(request,'listar.html',{'dests':dests})
     
+    
+def delete(request, id):
+    dest=Destino.objects.get(id=id)
+    try:
+        messages.info(request,dest.name+' Eliminado')    
+        dest.delete()
+    except:
+        messages.info(request,'No se pudo eliminar el Objeto')
+    return redirect('listar')
