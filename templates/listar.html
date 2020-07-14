@@ -128,9 +128,7 @@
 		</div>
     </div>
     <!--Message-->
-    {% for message in messages %}
     <h3 style="color: black;text-align:center;"> {{message}}</h3>
-    {% endfor %}
 	<!-- Table -->
     <div class="limiter">
 		<div class="container-table100">
@@ -161,7 +159,7 @@
 										<td class="column4">${{dest.price}}</td>
 										<td class="column5">{{dest.offer}}</td>
                                         <td class="column6">{{dest.state}}</td>
-                                        <td class="column7"><a class="btn-table" href="">Modificar</a></td>
+                                        <td class="column7"><a class="btn-table" href="{% url 'actualizar' dest.id %}">Modificar</a></td>
 										<td class="column8"><a class="btn-table" href="{% url 'delete' dest.id %}">Eliminar</a></td>
 									</tr>
 								{% endfor %}

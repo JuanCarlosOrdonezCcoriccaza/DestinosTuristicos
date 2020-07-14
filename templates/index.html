@@ -16,7 +16,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
-v<link rel="stylesheet" type="text/css" href="{% static 'styles/menu.css' %}">
 </head>
 <body>
 
@@ -38,7 +37,7 @@ v<link rel="stylesheet" type="text/css" href="{% static 'styles/menu.css' %}">
 									{% if user.is_authenticated %}
 										{% if user.is_superuser %}	
 											<li><a class="mostrar" href="">Mostrar</a>
-												<ul>
+												<ul style="display: color blue;">
 													<li><a href="accounts/listar">Listar</a></li>
 													<li><a href="accounts/createD">Crear Destino</a></li>
 													<li><a href="accounts/listar">Eliminar Destino</a></li>

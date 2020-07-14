@@ -127,7 +127,7 @@ h1, h2, h3, h4, h5, h6
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
-}
+}/*
 h1::selection, 
 h2::selection, 
 h3::selection, 
@@ -136,7 +136,7 @@ h5::selection,
 h6::selection
 {
 	
-}
+}*/
 .form-control
 {
 	color: #db5246;
@@ -552,7 +552,20 @@ section
 {
 	color: #181818;
 }
-
+.mostrar ul{
+    display: none;
+    position:absolute;
+    min-width:140px;
+}
+.mostrar a{
+    color:#fff;
+    text-decoration:none;
+    padding:10px 12px;
+    display:block;
+}
+.mostrar :hover >ul{
+    display: block;
+}
 /*********************************
 5. Home
 *********************************/

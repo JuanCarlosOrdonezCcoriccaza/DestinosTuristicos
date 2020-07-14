@@ -101,3 +101,29 @@ def delete(request, id):
     except:
         messages.info(request,'No se pudo eliminar el Objeto')
     return redirect('listar')
+
+
+def actualizar(request,id):
+    dest=Destino.objects.get(id=id)
+    return render(request,"actualizar.html",{'dest':dest})
+
+def modificar(request,id):
+    dest=Destino.objects.get(id=id)
+    if request.method=='POST':
+        dest.name=request.POST['name']
+        dest.img=request.FILES['img']
+        dest.desc=request.POST['desc']
+        dest.price=request.POST['price']
+        offer=request.POST.get('offer')
+        state=request.POST.get('state')
+        if offer== 'on':
+            dest.offer=True
+        else:
+            offer=False
+        if state== 'on':
+            dest.state=True
+        else:
+            state=False 
+        dest.save()
+        return redirect('listar')
+    return render(request,"actualizar.html",{'dest':dest})
